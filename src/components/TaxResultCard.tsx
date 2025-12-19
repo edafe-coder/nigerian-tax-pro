@@ -208,11 +208,12 @@ export function TaxResultCard({ result, input, onRecalculate }: TaxResultCardPro
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row gap-4 pb-8"
         >
           <Button
+            type="button"
             onClick={onRecalculate}
-            className="flex-1 h-12 rounded-2xl bg-primary hover:bg-primary/90"
+            className="flex-1 h-12 rounded-2xl bg-primary hover:bg-primary/90 relative z-10"
           >
             <Calculator className="mr-2 h-4 w-4" />
             New Calculation

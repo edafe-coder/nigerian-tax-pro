@@ -33,51 +33,53 @@ const Index = () => {
   };
 
   return (
-    <>
-      <AnimatePresence mode="wait">
-        {currentScreen === 'welcome' && (
-          <motion.div
-            key="welcome"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.3 }}
-          >
-            <WelcomeScreen onGetStarted={handleGetStarted} />
-          </motion.div>
-        )}
-        
-        {currentScreen === 'form' && (
-          <motion.div
-            key="form"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.3 }}
-          >
-            <TaxCalculatorForm onCalculate={handleCalculate} onBack={handleBack} />
-          </motion.div>
-        )}
-        
-        {currentScreen === 'result' && taxResult && taxInput && (
-          <motion.div
-            key="result"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.3 }}
-          >
-            <TaxResultCard 
-              result={taxResult} 
-              input={taxInput}
-              onRecalculate={handleRecalculate} 
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-1">
+        <AnimatePresence mode="wait">
+          {currentScreen === 'welcome' && (
+            <motion.div
+              key="welcome"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+            >
+              <WelcomeScreen onGetStarted={handleGetStarted} />
+            </motion.div>
+          )}
+          
+          {currentScreen === 'form' && (
+            <motion.div
+              key="form"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+            >
+              <TaxCalculatorForm onCalculate={handleCalculate} onBack={handleBack} />
+            </motion.div>
+          )}
+          
+          {currentScreen === 'result' && taxResult && taxInput && (
+            <motion.div
+              key="result"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+            >
+              <TaxResultCard 
+                result={taxResult} 
+                input={taxInput}
+                onRecalculate={handleRecalculate} 
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
       
       <Footer />
-    </>
+    </div>
   );
 };
 
