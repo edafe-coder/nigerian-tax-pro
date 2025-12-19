@@ -8,8 +8,9 @@ export function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.2 }}
-      className="fixed bottom-0 left-0 right-0 z-50 py-4 px-4"
+      className="py-4 px-4 mt-auto pointer-events-none"
     >
+      <div className="container mx-auto flex justify-center pointer-events-auto">
       <div className="container mx-auto flex justify-center">
         <Button
           asChild
@@ -28,6 +29,7 @@ export function Footer() {
             <Linkedin className="h-4 w-4 text-[#0A66C2]" />
           </a>
         </Button>
+      </div>
       </div>
     </motion.footer>
   );
